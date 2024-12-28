@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.syncopate {
+  font-family: "Syncopate", serif;
+}
+
+.bricolage {
+  font-family: "Bricolage Grotesque", serif;
+}
+
+.chakra {
+     font-family: "Chakra Petch",serif;
+}
+
+@font-face {
+    font-family: 'GraphicPixel';
+    src: url('/fonts/graphicpixel.ttf') format('truetype');
+  }
+  
+  .pixel-font {
+    font-family: 'GraphicPixel';
+    font-weight: normal;
+    font-style: normal;
+  }
