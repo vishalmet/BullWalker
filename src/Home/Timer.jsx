@@ -57,10 +57,10 @@ const Timer = () => {
                         transition={{ delay: 0.2 + i * 0.1 }}
                         className="bg-black/50 backdrop-blur-sm p-4 rounded-lg border border-cyan-500/20"
                     >
-                        <div className="text-3xl font-bold text-cyan-400">
+                        <div className="text-xl md:text-3xl font-bold text-cyan-400">
                             {String(time.value).padStart(2, '0')}
                         </div>
-                        <div className="text-sm text-gray-500">{time.label}</div>
+                        <div className="text-xs md:text-sm text-gray-500">{time.label}</div>
                     </motion.div>
                 ))}
             </div>

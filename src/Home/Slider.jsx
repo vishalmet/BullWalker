@@ -16,15 +16,15 @@ const Slider = () => {
     return (
         <div>
             <Marquee className="text-sm md:text-xl bg-transparent backdrop-blur-sm mt-6 md:mt-16 h-24 text-white">
-                <p className="pr-16 flex items-center gap-2"><img src={Ape} className=' h-8 ' alt="ape terminal" />Ape Terminal</p>
-                <p className="pr-16 flex items-center gap-2"><img src={BscPad} className=' h-8 ' alt="Bsc pad" />BSC Pad</p>
-                <p className="pr-16 flex items-center gap-2"><img src={BullStarter} className=' h-8 ' alt="bull starter" /></p>
-                <p className="pr-16 flex items-center gap-2"><img src={ChainGpt} className=' h-8 ' alt="ChainGPT" /></p>
-                <p className="pr-16 flex items-center gap-2"><img src={Enjin} className=' h-8 ' alt="EnjinStarter" /></p>
-                <p className="pr-16 flex items-center gap-2"><img src={Polk} className=' h-8 ' alt="polkastarter" />polkastarter</p>
-                <p className="pr-16 flex items-center gap-2"><img src={RedKite} className=' h-12 ' alt="RedKite" /></p>
-                <p className="pr-16 flex items-center gap-2"><img src={TrustSwap} className=' h-8 ' alt="polkastarter" />Trustswap</p>
-                <p className="pr-16 flex items-center gap-2"><img src={DaoMaker} className=' h-8 ' alt="polkastarter" />DAO Maker</p>
+                <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={Ape} className=' h-8 ' alt="ape terminal" />Ape Terminal</p>
+                <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={BscPad} className=' h-8 ' alt="Bsc pad" />BSC Pad</p>
+                <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={BullStarter} className=' h-8 ' alt="bull starter" /></p>
+                <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={ChainGpt} className=' h-8 ' alt="ChainGPT" /></p>
+                <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={Enjin} className=' h-8 ' alt="EnjinStarter" /></p>
+                <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={Polk} className=' h-8 ' alt="polkastarter" />polkastarter</p>
+                <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={RedKite} className=' h-12 ' alt="RedKite" /></p>
+                <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={TrustSwap} className=' h-8 ' alt="polkastarter" />Trustswap</p>
+                <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={DaoMaker} className=' h-8 ' alt="polkastarter" />DAO Maker</p>
 
              
             </Marquee>

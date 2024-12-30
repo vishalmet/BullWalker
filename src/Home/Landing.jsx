@@ -171,10 +171,9 @@ const ProductLanding = () => {
                                 </motion.div>
 
                                 {/* Main Title */}
-                                {/* Main Title */}
-                                <div className="space-y-6">
+                                <div className="space-y-3 md:space-y-6">
                                     <motion.h1
-                                        className="text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 uppercase tracking-tight flex items-center justify-center"
+                                        className="text-4xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 uppercase tracking-tight flex items-center justify-center"
                                         animate={{
                                             backgroundPosition: ['0% center', '100% center', '0% center'],
                                         }}
@@ -196,7 +195,7 @@ const ProductLanding = () => {
                                                 repeat: Infinity,
                                                 ease: "linear"
                                             }}
-                                            className="w-24 h-24"
+                                            className="w-16 h-16 md:w-24 md:h-24"
                                         >
                                             <img src={BullWalker} />
                                         </motion.div>
@@ -210,24 +209,22 @@ const ProductLanding = () => {
                                                 repeat: Infinity,
                                                 ease: "linear"
                                             }}
-                                            className="w-24 h-24"
+                                            className="w-16 h-16 md:w-24 md:h-24"
                                         >
                                             <img src={BullWalker} />
                                         </motion.div>
                                     </motion.h1>
-                                    <h2 className="text-4xl text-cyan-400 font-medium flex justify-center items-center">
-                                        <span>The Zero-Stake</span>
-
-                                        <span>Launchpad</span>
+                                    <h2 className="text-2xl md:text-4xl text-cyan-400 font-medium flex justify-center items-center">
+                                       The Zero-Stack Launchpad
                                     </h2>
-                                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                                    <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto">
                                         Step into the future of decentralized launches with BullWalker.
                                         No staking requirements. No tier system. Just fair opportunities for everyone.
                                     </p>
                                 </div>
 
                                 {/* CTA Buttons */}
-                                <div className="flex gap-4 justify-center pt-2">
+                                <div className="flex gap-4 justify-center pt-2 text-sm md:text-base">
                                     <button className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-bold rounded-lg transition-all duration-300 hover:scale-105">
                                         Check eligibility
                                     </button>
@@ -240,8 +237,9 @@ const ProductLanding = () => {
                                 <Slider />
                                 <Features />
 
-                                {/* Eligibility Section */}
+                                <div className="pt-10">
                                 <Eligibility />
+                                </div>
                             </motion.div>
                         </div>
                     </div>
