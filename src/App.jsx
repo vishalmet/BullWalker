@@ -1,11 +1,13 @@
 import { useState } from 'react'
 
-import ProductLanding from './landingPage/Landing'
+import ProductLanding from './Home/Landing'
+import SubContents from './Home/SubContents'
 
 function App() {
   return (
     <div className=" chakra">
       <ProductLanding />
+      {/* <SubContents /> */}
     </div>
   )
 }
