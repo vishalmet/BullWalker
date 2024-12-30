@@ -2,12 +2,78 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import CustomCursor from '../components/Cursor';
 
+// Bull Icon Component
+const BullIcon = ({ className = "" }) => (
+    <svg viewBox="0 0 100 100" className={`${className}`} fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.path
+            d="M20 50C20 30 35 15 50 15C65 15 80 30 80 50C80 70 65 85 50 85C35 85 20 70 20 50Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+        />
+        <motion.path
+            d="M35 45C35 40 40 35 45 35C50 35 55 40 55 45C55 50 50 55 45 55C40 55 35 50 35 45Z"
+            fill="currentColor"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 1, duration: 0.5 }}
+        />
+        <motion.path
+            d="M15 30C25 25 35 35 30 45"
+            stroke="currentColor"
+            strokeWidth="2"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ delay: 1.5, duration: 1 }}
+        />
+        <motion.path
+            d="M85 30C75 25 65 35 70 45"
+            stroke="currentColor"
+            strokeWidth="2"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ delay: 1.5, duration: 1 }}
+        />
+    </svg>
+);
+
 const ProductLanding = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const lines = Array.from({ length: 20 });
     const circles = Array.from({ length: 15 });
-    const launchDate = new Date('2024-02-01');
+    const launchDate = new Date('2025-1-26');
+    useEffect(() => {
+        const calculateTimeLeft = () => {
+            const difference = +new Date(launchDate) - +new Date();
+            let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+            if (difference > 0) {
+                timeLeft = {
+                    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                    minutes: Math.floor((difference / 1000 / 60) % 60),
+                    seconds: Math.floor((difference / 1000) % 60)
+                };
+            }
+
+            return timeLeft;
+        };
+
+        // Initial calculation
+        setCountdown(calculateTimeLeft());
+
+        // Update every second
+        const timer = setInterval(() => {
+            setCountdown(calculateTimeLeft());
+        }, 1000);
+
+        // Cleanup
+        return () => clearInterval(timer);
+    }, [launchDate]);
+
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -20,9 +86,10 @@ const ProductLanding = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
-    // Background component remains fixed
+    // Background component
     const Background = () => (
         <div className="fixed inset-0 bg-black">
+            {/* Top Semicircle */}
             <div className="absolute left-1/2 -translate-x-1/2 w-[800px] h-[400px] overflow-hidden">
                 <div className="w-[600px] h-[600px] rounded-full absolute top-[-90%] left-1/2 -translate-x-1/2"
                     style={{
@@ -30,6 +97,7 @@ const ProductLanding = () => {
                     }}
                 />
             </div>
+
             <div
                 className="absolute inset-0 z-10"
                 style={{
@@ -37,6 +105,7 @@ const ProductLanding = () => {
                 }}
             />
 
+            {/* Animated lines */}
             <div className="absolute inset-0">
                 {lines.map((_, i) => (
                     <motion.div
@@ -62,6 +131,7 @@ const ProductLanding = () => {
                 ))}
             </div>
 
+            {/* Hexagon Pattern */}
             <div className="absolute inset-0 opacity-30">
                 <svg width="100%" height="100%">
                     <pattern
@@ -83,6 +153,30 @@ const ProductLanding = () => {
                 </svg>
             </div>
 
+            {/* Bull Pattern */}
+            <div className="absolute inset-0 opacity-5">
+                <svg width="100%" height="100%">
+                    <pattern
+                        id="bullPattern"
+                        x="0"
+                        y="0"
+                        width="200"
+                        height="200"
+                        patternUnits="userSpaceOnUse"
+                    >
+                        <path
+                            d="M50 20C65 20 80 35 80 50C80 65 65 80 50 80C35 80 20 65 20 50C20 35 35 20 50 20Z"
+                            stroke="rgba(34,211,238,0.3)"
+                            strokeWidth="1"
+                            fill="none"
+                            transform="translate(50 50)"
+                        />
+                    </pattern>
+                    <rect width="100%" height="100%" fill="url(#bullPattern)" />
+                </svg>
+            </div>
+
+            {/* Floating orbs */}
             {circles.map((_, i) => (
                 <motion.div
                     key={i}
@@ -114,6 +208,7 @@ const ProductLanding = () => {
                 />
             ))}
 
+            {/* Secondary spotlight */}
             <div
                 className="absolute inset-0 z-20"
                 style={{
@@ -121,6 +216,7 @@ const ProductLanding = () => {
                 }}
             />
 
+            {/* Gradients */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black opacity-80" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)] opacity-90" />
         </div>
@@ -149,22 +245,60 @@ const ProductLanding = () => {
                                     transition={{ delay: 0.2 }}
                                     className="inline-block"
                                 >
-                                    <span className="px-4 py-2 rounded-full text-sm font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                                    <motion.span
+                                        className="px-6 py-3 rounded-full text-sm font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center gap-2"
+                                        animate={{
+                                            boxShadow: ['0 0 0px rgba(34,211,238,0.2)', '0 0 20px rgba(34,211,238,0.2)', '0 0 0px rgba(34,211,238,0.2)']
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            repeat: Infinity,
+                                            ease: "easeInOut"
+                                        }}
+                                    >
+                                        <BullIcon className="w-5 h-5 text-cyan-400" />
                                         Launching Soon 🚀
-                                    </span>
+                                    </motion.span>
                                 </motion.div>
 
                                 {/* Main Title */}
                                 <div className="space-y-6">
-                                    <h1 className="text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600 uppercase tracking-tight">
-                                        The Zero-Stake <br />Launchpad
-                                    </h1>
-                                    <h2 className="text-4xl text-cyan-400 font-medium">
-                                        Dropping Something Revolutionary
+                                    <motion.h1
+                                        className="text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 uppercase tracking-tight"
+                                        animate={{
+                                            backgroundPosition: ['0% center', '100% center', '0% center'],
+                                        }}
+                                        transition={{
+                                            duration: 8,
+                                            repeat: Infinity,
+                                            ease: "linear"
+                                        }}
+                                        style={{
+                                            backgroundSize: '200% 100%'
+                                        }}
+                                    >
+                                        BullWalker
+                                    </motion.h1>
+                                    <h2 className="text-4xl text-cyan-400 font-medium flex justify-center items-center gap-3">
+                                        <span>The Zero-Stake</span>
+                                        <motion.div
+                                            animate={{
+                                                rotate: [0, 360]
+                                            }}
+                                            transition={{
+                                                duration: 20,
+                                                repeat: Infinity,
+                                                ease: "linear"
+                                            }}
+                                            className="w-8 h-8"
+                                        >
+                                            <BullIcon className="text-cyan-400" />
+                                        </motion.div>
+                                        <span>Launchpad</span>
                                     </h2>
                                     <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                                        Step into the future of decentralized launches with BullWalker.
                                         No staking requirements. No tier system. Just fair opportunities for everyone.
-                                        Be among the first to experience the future of decentralized launches.
                                     </p>
                                 </div>
 
@@ -182,10 +316,10 @@ const ProductLanding = () => {
                                 <div className="pt-16">
                                     <div className="grid grid-cols-4 gap-4 max-w-xl mx-auto">
                                         {[
-                                            { label: "Days", value: "14" },
-                                            { label: "Hours", value: "22" },
-                                            { label: "Minutes", value: "36" },
-                                            { label: "Seconds", value: "48" }
+                                            { label: "Days", value: countdown.days },
+                                            { label: "Hours", value: countdown.hours },
+                                            { label: "Minutes", value: countdown.minutes },
+                                            { label: "Seconds", value: countdown.seconds }
                                         ].map((time, i) => (
                                             <motion.div
                                                 key={i}
@@ -194,7 +328,9 @@ const ProductLanding = () => {
                                                 transition={{ delay: 0.2 + i * 0.1 }}
                                                 className="bg-black/50 backdrop-blur-sm p-4 rounded-lg border border-cyan-500/20"
                                             >
-                                                <div className="text-3xl font-bold text-cyan-400">{time.value}</div>
+                                                <div className="text-3xl font-bold text-cyan-400">
+                                                    {String(time.value).padStart(2, '0')}
+                                                </div>
                                                 <div className="text-sm text-gray-500">{time.label}</div>
                                             </motion.div>
                                         ))}
@@ -202,8 +338,6 @@ const ProductLanding = () => {
                                 </div>
                             </motion.div>
                         </div>
-
-                        {/* Features */}
 
                         {/* Features */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -262,8 +396,9 @@ const ProductLanding = () => {
                         {/* Additional Info Sections */}
                         <div className="space-y-24">
                             <div className="max-w-4xl mx-auto">
-                                <h2 className="text-4xl font-bold text-white mb-6">
-                                    Why We're Different
+                                <h2 className="text-4xl font-bold text-white mb-6 flex items-center gap-3">
+                                    Why BullWalker Is Different
+                                    <BullIcon className="w-8 h-8 text-cyan-400" />
                                 </h2>
                                 <p className="text-gray-400">
                                     Traditional launchpads require users to stake tokens to participate, creating barriers
@@ -275,11 +410,11 @@ const ProductLanding = () => {
 
                             <div className="max-w-4xl mx-auto">
                                 <h2 className="text-4xl font-bold text-white mb-6">
-                                    Coming Soon
+                                    Coming Soon to Bull Market
                                 </h2>
                                 <p className="text-gray-400">
                                     Be part of the revolution in fair token launches. Join our community to get early
-                                    access and be the first to know when we go live. No staking required, no complicated
+                                    access and be the first to know when BullWalker goes live. No staking required, no complicated
                                     tier systems - just pure opportunity for everyone.
                                 </p>
                             </div>
