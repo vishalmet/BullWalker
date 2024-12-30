@@ -29,13 +29,32 @@ const ProductLanding = () => {
     // Background component remains fixed
     const Background = () => (
         <div className="fixed inset-0 bg-black">
+            {/* Top center gradient */}
             <div className="absolute left-1/2 -translate-x-1/2 w-[800px] h-[400px] overflow-hidden">
                 <div className="w-[600px] h-[600px] rounded-full absolute top-[-90%] left-1/2 -translate-x-1/2"
                     style={{
-                        background: `radial-gradient(circle, rgba(34,211,238,0.25) 40%, transparent 70%)`,
+                        background: `radial-gradient(circle, rgba(34,211,238,0.25) 40%, transparent 80%)`,
                     }}
                 />
             </div>
+
+            {/* Bottom left gradient */}
+            <div className="absolute left-0 bottom-0 w-[800px] h-[400px] overflow-hidden">
+                <div className="w-[600px] h-[600px] rounded-full absolute bottom-[-50%] left-[-20%]"
+                    style={{
+                        background: `radial-gradient(circle, rgba(34,211,238,0.5) 90%, transparent 90%)`,
+                    }}
+                />
+            </div>
+            {/* Bottom right gradient */}
+            <div className="absolute right-0 bottom-0 w-[800px] h-[400px] overflow-hidden">
+                <div className="w-[600px] h-[600px] rounded-full absolute bottom-[-50%] right-[-20%]"
+                    style={{
+                        background: `radial-gradient(circle, rgba(34,211,238,0.5) 90%, transparent 90%)`,
+                    }}
+                />
+            </div>
+
             <div
                 className="absolute inset-0 z-10"
                 style={{
@@ -215,7 +234,7 @@ const ProductLanding = () => {
                                         </motion.div>
                                     </motion.h1>
                                     <h2 className="text-2xl md:text-4xl text-cyan-400 font-medium flex justify-center items-center">
-                                       The Zero-Stack Launchpad
+                                        The Zero-Stack Launchpad
                                     </h2>
                                     <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto">
                                         Step into the future of decentralized launches with BullWalker.
@@ -238,7 +257,7 @@ const ProductLanding = () => {
                                 <Features />
 
                                 <div className="pt-10">
-                                <Eligibility />
+                                    <Eligibility />
                                 </div>
                             </motion.div>
                         </div>
