@@ -153,7 +153,7 @@ const ProductLanding = () => {
 
     return (
         <div className="relative">
-            <CustomCursor />
+            {/* <CustomCursor /> */}
             <Background />
 
             {/* Scrollable content */}
