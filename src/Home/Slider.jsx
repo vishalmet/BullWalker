@@ -14,7 +14,7 @@ import TrustSwap from "../assets/trustswap.webp"
 
 const Slider = () => {
     return (
-        <div>
+        <div className='  hidden md:flex'>
             <Marquee className="text-sm md:text-xl bg-transparent backdrop-blur-sm mt-6 md:mt-16 h-24 text-white">
                 <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={Ape} className=' h-8 ' alt="ape terminal" />Ape Terminal</p>
                 <p className="pr-10 md:pr-16 flex items-center gap-2"><img src={BscPad} className=' h-8 ' alt="Bsc pad" />BSC Pad</p>

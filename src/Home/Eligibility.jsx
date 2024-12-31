@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Ape from "../assets/apeterminal.png"
 import BscPad from "../assets/bscpad.png"
@@ -12,6 +12,22 @@ import TrustSwap from "../assets/trustswap.webp"
 
 
 const Eligibility = () => {
+    const [walletAddress, setWalletAddress] = useState('');
+
+    // General wallet address validation
+    // Checks if address is between 26-75 chars, allows for most blockchain wallet addresses
+    const isValidAddress = (address) => {
+        // Remove any whitespace
+        address = address.trim();
+
+        // Check if address is empty
+        if (!address) return false;
+
+        // Basic length check (most wallet addresses are between 26-75 characters)
+        if (address.length < 26 || address.length > 75) return false;
+
+        return true;
+    };
     return (
         <div className="max-w-6xl mx-auto space-y-8">
             <h2 className="text-4xl font-bold text-white mb-6 flex items-center justify-center gap-3">
@@ -28,8 +44,9 @@ const Eligibility = () => {
             {/* Launchpad Logos Grid */}
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-white">
-                <div className=" border border-cyan-200/20 p-2 rounded-xl">
-                    <motion.p className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
+                <div className="border border-cyan-200/20 p-2 rounded-xl transition-transform duration-300 hover:-translate-y-2">
+                    <motion.p
+                        className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
                         animate={{
                             boxShadow: [
                                 '0 0 0px rgba(34,211,238,0)',
@@ -43,9 +60,11 @@ const Eligibility = () => {
                             delay: 0.2
                         }}
                     >
-                        <img src={Ape} className=' h-6 md:h-12 ' alt="ape terminal" />Ape Terminal</motion.p>
+                        <img src={Ape} className='h-6 md:h-12' alt="ape terminal" />
+                        Ape Terminal
+                    </motion.p>
                 </div>
-                <div className=" border border-cyan-200/20 p-2 rounded-xl">
+                <div className=" border border-cyan-200/20 p-2 rounded-xl transition-transform duration-300 hover:-translate-y-2">
                     <motion.p className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
                         animate={{
                             boxShadow: [
@@ -62,7 +81,7 @@ const Eligibility = () => {
                     >
                         <img src={BscPad} className=' h-6 md:h-12 ' alt="Bsc pad" />BSC Pad</motion.p>
                 </div>
-                <div className=" border border-cyan-200/20 p-2 rounded-xl">
+                <div className=" border border-cyan-200/20 p-2 rounded-xl transition-transform duration-300 hover:-translate-y-2">
                     <motion.p className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
                         animate={{
                             boxShadow: [
@@ -79,7 +98,7 @@ const Eligibility = () => {
                     >
                         <img src={BullStarter} className=' h-6 md:h-12 ' alt="bull starter" /></motion.p>
                 </div>
-                <div className=" border border-cyan-200/20 p-2 rounded-xl">
+                <div className=" border border-cyan-200/20 p-2 rounded-xl transition-transform duration-300 hover:-translate-y-2">
                     <motion.p className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
                         animate={{
                             boxShadow: [
@@ -96,7 +115,7 @@ const Eligibility = () => {
                     >
                         <img src={ChainGpt} className=' h-6 md:h-12 ' alt="ChainGPT" /></motion.p>
                 </div>
-                <div className=" border border-cyan-200/20 p-2 rounded-xl">
+                <div className=" border border-cyan-200/20 p-2 rounded-xl transition-transform duration-300 hover:-translate-y-2">
                     <motion.p className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
                         animate={{
                             boxShadow: [
@@ -113,7 +132,7 @@ const Eligibility = () => {
                     >
                         <img src={Enjin} className=' h-6 md:h-12 ' alt="EnjinStarter" /></motion.p>
                 </div>
-                <div className=" border border-cyan-200/20 p-2 rounded-xl">
+                <div className=" border border-cyan-200/20 p-2 rounded-xl transition-transform duration-300 hover:-translate-y-2">
                     <motion.p className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
                         animate={{
                             boxShadow: [
@@ -130,7 +149,7 @@ const Eligibility = () => {
                     >
                         <img src={Polk} className=' h-6 md:h-12 ' alt="polkastarter" />polkastarter</motion.p>
                 </div>
-                <div className=" border border-cyan-200/20 p-2 rounded-xl">
+                <div className=" border border-cyan-200/20 p-2 rounded-xl transition-transform duration-300 hover:-translate-y-2">
                     <motion.p className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
                         animate={{
                             boxShadow: [
@@ -147,7 +166,7 @@ const Eligibility = () => {
                     >
                         <img src={RedKite} className=' h-6 md:h-12 ' alt="RedKite" /></motion.p>
                 </div>
-                <div className=" border border-cyan-200/20 p-2 rounded-xl">
+                <div className=" border border-cyan-200/20 p-2 rounded-xl transition-transform duration-300 hover:-translate-y-2">
                     <motion.p className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
                         animate={{
                             boxShadow: [
@@ -164,7 +183,7 @@ const Eligibility = () => {
                     >
                         <img src={TrustSwap} className=' h-6 md:h-12 ' alt="polkastarter" />Trustswap</motion.p>
                 </div>
-                <div className=" border border-cyan-200/20 p-2 rounded-xl">
+                <div className=" border border-cyan-200/20 p-2 rounded-xl transition-transform duration-300 hover:-translate-y-2">
                     <motion.p className="flex justify-center items-center gap-2 text-sm md:text-2xl font-semibold bg-transparent backdrop-blur-[20px] p-2 rounded"
                         animate={{
                             boxShadow: [
@@ -199,9 +218,35 @@ const Eligibility = () => {
                     <p className="text-gray-400">
                         If you're a member of any supported launchpad, you're automatically eligible to join BullWalker. Check your eligibility now.
                     </p>
-                    <button className="mt-4 px-8 py-3 border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 font-bold rounded-lg transition-all duration-300 hover:scale-105">
-                        Check Eligibility
-                    </button>
+                    <div className=" p-2 md:p-1 rounded-xl border border-cyan-500/40 backdrop-blur-sm">
+                        <div className="flex flex-col md:flex-row md:gap-4 items-center">
+                            <input
+                                type="text"
+                                placeholder="Enter your wallet address"
+                                value={walletAddress}
+                                onChange={(e) => setWalletAddress(e.target.value)}
+                                className="w-full md:w-96 px-4 py-3 bg-transparent outline-none text-gray-300 rounded-lg   placeholder-gray-300"
+                            />
+                            <button
+                                disabled={!isValidAddress(walletAddress)}
+                                onClick={() => {
+                                    onClick={isValidAddress}
+                                }}
+                                className={`px-8 py-3 font-bold rounded-lg 
+                              transition-all duration-300 whitespace-nowrap
+                              ${isValidAddress(walletAddress)
+                                        ? 'bg-cyan-500 hover:bg-cyan-600 text-black font-bold  hover:scale-105'
+                                        : 'bg-cyan-500/60 hover:bg-cyan-600/60 text-black/60 font-bold cursor-not-allowed'}`}
+                            >
+                                Check Eligibility
+                            </button>
+                        </div>
+                        {walletAddress && !isValidAddress(walletAddress) && (
+                            <p className="mt-2 text-sm text-red-400">
+                                Please enter a valid wallet address
+                            </p>
+                        )}
+                    </div>
                 </motion.div>
 
                 {/* Whitelist Card */}
@@ -217,7 +262,7 @@ const Eligibility = () => {
                     <p className="text-gray-400">
                         Don't worry! Apply for our whitelist to get early access to BullWalker's revolutionary zero-stake launchpad platform.
                     </p>
-                    <button className="mt-4 px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-bold rounded-lg transition-all duration-300 hover:scale-105">
+                    <button className="mt-4 px-8 py-3 border border-cyan-500 text-cyan-500 hover:bg-cyan-500/10 font-bold rounded-lg transition-all duration-300 hover:scale-105">
                         Apply for Whitelist
                     </button>
                 </motion.div>

@@ -241,14 +241,29 @@ const ProductLanding = () => {
                                         No staking requirements. No tier system. Just fair opportunities for everyone.
                                     </p>
                                 </div>
-
                                 {/* CTA Buttons */}
                                 <div className="flex gap-4 justify-center pt-2 text-sm md:text-base">
-                                    <button className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-bold rounded-lg transition-all duration-300 hover:scale-105">
+                                    <button
+                                        onClick={() => {
+                                            document.getElementById('eligibility').scrollIntoView({
+                                                behavior: 'smooth',
+                                                block: 'start'
+                                            });
+                                        }}
+                                        className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-bold rounded-lg transition-all duration-300 hover:scale-105"
+                                    >
                                         Check eligibility
                                     </button>
-                                    {/* <button className="px-8 py-3 border border-cyan-500 text-cyan-500 hover:bg-cyan-500/10 font-bold rounded-lg transition-all duration-300">
-                                        Learn More
+                                    {/* <button
+                                        onClick={() => {
+                                            document.getElementById('eligibility').scrollIntoView({
+                                                behavior: 'smooth',
+                                                block: 'start'
+                                            });
+                                        }}
+                                        className="px-8 py-3 border border-cyan-500 text-cyan-500 hover:bg-cyan-500/10 font-bold rounded-lg transition-all duration-300"
+                                    >
+                                        Join Whitelist
                                     </button> */}
                                 </div>
 
@@ -256,7 +271,7 @@ const ProductLanding = () => {
                                 <Slider />
                                 <Features />
 
-                                <div className="pt-10">
+                                <div className="pt-10" id="eligibility">
                                     <Eligibility />
                                 </div>
                             </motion.div>

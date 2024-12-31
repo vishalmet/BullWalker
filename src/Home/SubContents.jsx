@@ -3,34 +3,60 @@ import { motion } from 'framer-motion';
 
 // Features Component
 const Features = () => (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-            {
-                title: "No Staking Required",
-                desc: "Unlike other launchpads, we don't require any token staking. Your opportunity shouldn't depend on your wallet size."
-            },
-            {
-                title: "Fair Launch Model",
-                desc: "Equal opportunity for all participants. No complicated tier systems or token holdings requirements."
-            },
-            {
-                title: "Community First",
-                desc: "Built for the community, focusing on project quality and equal access rather than token mechanics."
-            }
-        ].map((feature, i) => (
-            <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
-                className="p-6 rounded-xl border border-cyan-500/20 backdrop-blur-sm"
-            >
-                <h3 className="text-xl font-bold text-cyan-400 mb-2">
-                    {feature.title}
-                </h3>
-                <p className="text-gray-400">{feature.desc}</p>
-            </motion.div>
-        ))}
+    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 max-w-6xl mx-auto">
+        <div className="md:flex md:justify-center md:gap-6 md:col-span-2">
+            {/* First two cards */}
+            <div className="transition-transform duration-300 hover:-translate-y-2">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="p-6 rounded-xl border border-cyan-500/20 backdrop-blur-sm w-full max-w-[400px] mb-8 md:mb-0"
+                >
+                    <h3 className="text-xl font-bold text-cyan-400 mb-2">
+                        No Staking Required
+                    </h3>
+                    <p className="text-gray-400">
+                        Unlike other launchpads, we don't require any token staking. Your opportunity shouldn't depend on your wallet size.
+                    </p>
+                </motion.div>
+            </div>
+
+            <div className="transition-transform duration-300 hover:-translate-y-2">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="p-6 rounded-xl border border-cyan-500/20 backdrop-blur-sm w-full max-w-[400px] mb-8 md:mb-0"
+                >
+                    <h3 className="text-xl font-bold text-cyan-400 mb-2">
+                        Fair Launch Model
+                    </h3>
+                    <p className="text-gray-400">
+                        Equal opportunity for all participants. No complicated tier systems or token holdings requirements.
+                    </p>
+                </motion.div>
+            </div>
+        </div>
+
+        {/* Third card in second row */}
+        <div className="md:col-span-2 flex justify-center">
+            <div className="transition-transform duration-300 hover:-translate-y-2">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="p-6 rounded-xl border border-cyan-500/20 backdrop-blur-sm w-full max-w-[400px]"
+                >
+                    <h3 className="text-xl font-bold text-cyan-400 mb-2">
+                        Community First
+                    </h3>
+                    <p className="text-gray-400">
+                        Built for the community, focusing on project quality and equal access rather than token mechanics.
+                    </p>
+                </motion.div>
+            </div>
+        </div>
     </div>
 );
 
