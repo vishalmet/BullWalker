@@ -271,9 +271,9 @@ const ProductLanding = () => {
                                 <Slider />
                                 <Features />
 
-                                <div className="pt-10" id="eligibility">
+                                {/* <div className="pt-10" id="eligibility">
                                     <Eligibility />
-                                </div>
+                                </div> */}
                             </motion.div>
                         </div>
                     </div>
